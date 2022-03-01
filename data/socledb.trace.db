@@ -1,0 +1,6 @@
+2022-03-01 22:16:01 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ENSEIGNANT" not found; SQL statement:
+select * from enseignant [42102-200]
+2022-03-01 22:16:06 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ENSEIGNANT" not found; SQL statement:
+select * from enseignant [42102-200]
