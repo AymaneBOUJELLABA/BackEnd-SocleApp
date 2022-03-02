@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * 
@@ -20,6 +19,7 @@ public class Enseignant
 	private Integer noEnseignant;
 	
 	private String nom;
+	private String prenom;
 	private String sexe;
 	private String pays;
 	private String adresse;
@@ -53,6 +53,18 @@ public class Enseignant
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	/**
+	 * @return the prenom
+	 */
+	public String getPrenom() {
+		return prenom;
+	}
+	/**
+	 * @param prenom the prenom to set
+	 */
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 	/**
 	 * @return the sexe
@@ -213,7 +225,7 @@ public class Enseignant
 	}
 	@Override
 	public String toString() {
-		return "Enseignant [noEnseignant=" + noEnseignant + ", nom=" + nom + ", sexe=" + sexe + ", pays=" + pays
+		return "Enseignant [noEnseignant=" + noEnseignant + ", nom=" + nom + ", prenom=" + prenom +", sexe=" + sexe + ", pays=" + pays
 				+ ", adresse=" + adresse + ", ville=" + ville + ", codePostal=" + codePostal + ", telephone="
 				+ telephone + ", mobile=" + mobile + ", type=" + type + ", emailUbo=" + emailUbo + ", emailPerso="
 				+ emailPerso + "]";

@@ -39,11 +39,12 @@ public class EnseignantController
 	/**
 	 * Constructeur par default
 	 */
-	public EnseignantController() {
+	public EnseignantController()
+	{
 		// TODO Auto-generated constructor stub
 	}
 	
-	@GetMapping("/")
+	@GetMapping
 	public List<Enseignant> getAllEnseignants()
 	{
 		try{
@@ -91,7 +92,7 @@ public class EnseignantController
 		}
 	}
 	
-	@PostMapping("/")
+	@PostMapping
 	public Enseignant postEnseignant(@RequestBody Enseignant entity)
 	{
 		try
@@ -106,6 +107,18 @@ public class EnseignantController
 	}
 	
 	@DeleteMapping("/{noEnseignant}")
-	public String deleteEnseignant(@PathVariable)
-
+	public String deleteEnseignant(@PathVariable Integer noEnseignant)
+	{
+		boolean success = false;
+		try
+		{
+			success = enseignantService.supprimerParId(noEnseignant);
+			
+			return success ? "Suppression avec succes de l'enseignant "+noEnseignant : "veuillez saisir un noEnseignant valide!";
+		}catch(Exception e)
+		{
+			logger.error("deleteEnseignant " + e);
+			return "Erreur dans la suppression du l'enseignant"+noEnseignant;
+		}
+	}
 }

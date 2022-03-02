@@ -92,9 +92,14 @@ public class EnseignantServiceImpl implements EnseignantService
 		return enseignantRepo.save(entity);
 	}
 	
+	/**
+	 * Chercher Enseignant par Numero
+	 */
 	@Override
 	public Enseignant chercherParNoEnseignant(Integer id)
 	{
-		return enseignantRepo.getById(id);
+		Optional<Enseignant> r = enseignantRepo.findById(id);
+		
+		return r.isPresent() ? r.get() : null;
 	}
 }
