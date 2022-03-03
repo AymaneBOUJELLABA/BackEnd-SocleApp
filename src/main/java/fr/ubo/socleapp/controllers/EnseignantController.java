@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ import fr.ubo.socleapp.services.EnseignantServiceImpl;
  */
 @RestController
 @RequestMapping("/enseignants")
+@CrossOrigin(origins = "*")
 public class EnseignantController
 {
 	private static Logger logger = LogManager.getLogger(EnseignantServiceImpl.class);
@@ -68,14 +70,14 @@ public class EnseignantController
 		}
 	}
 	
-	@GetMapping("/emailPerso/{emailPerso}")
-	public Enseignant getEnseignantByEmailPerso(@PathVariable String emailPerso)
+	@GetMapping("/nom/{nom}")
+	public Enseignant getEnseignantByNom(@PathVariable String nom)
 	{
 		try{
-			return enseignantService.chercherParEmailPerso(emailPerso);
+			return enseignantService.chercherParNom(nom);
 		}catch(Exception e)
 		{
-			logger.error("getEnseignantByEmailPerso : "  +e);
+			logger.error("getEnseignantByNom : "  +e);
 			return null;
 		}
 	}
